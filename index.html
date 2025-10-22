@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Rahasia Multi-Akses</title>
+    <!-- CSS Murni (Pure CSS) - DESAIN: Bright Clean Cyan -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        /* Reset dan Layout Utama */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Latar belakang sangat cerah, gradien subtil */
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            color: #1f2937; /* Warna teks utama gelap */
+        }
+
+        /* Styling Logo Gambar (Google Drive Image) */
+        .drive-logo-image { 
+            /* ---------- UKURAN DAN PENEMPATAN LOGO DI SINI ---------- */
+            width: 350px; 
+            height: 150px; 
+            /* Posisikan di tengah kartu */
+            display: block;
+            margin: 0 auto 20px auto; /* Tengah horizontal, beri jarak bawah */
+            /* -------------------------------------------------- */
+            object-fit: contain;
+        }
+
+        /* Styling Kartu Login (Clean White) */
+        .login-card {
+            background-color: #ffffff; /* Kartu Putih Bersih */
+            border-radius: 1rem; /* 16px */
+            /* Shadow lembut untuk tampilan 'mengambang' */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+            max-width: 400px;
+            width: 100%;
+            padding: 40px;
+            transition: all 0.5s ease;
+            border: 1px solid #e5e7eb; /* Border sangat halus */
+            text-align: center;
+        }
+        
+        .login-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Shadow sedikit lebih dalam saat hover */
+        }
+
+        /* LOGO ICON LAMA (SVG) DIHAPUS, MAKA STYLING INI TIDAK DIPERLUKAN LAGI */
+        /* .logo-container {} */
+
+        /* Judul */
+        .title {
+            font-size: 1.875rem; /* 30px */
+            font-weight: 700;
+            margin-bottom: 0.5rem; 
+            text-align: center;
+            letter-spacing: -0.025em;
+            color: #111827; /* Warna judul sangat gelap */
+        }
+
+        /* Paragraf Keterangan */
+        .subtitle {
+            color: #4b5563; /* Warna subtitle abu-abu gelap */
+            margin-bottom: 2rem; /* 32px */
+            text-align: center;
+        }
+
+        /* Input Field */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+            text-align: left; /* Kembalikan label ke kiri */
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px 16px;
+            background-color: #f9fafb; /* Latar belakang input abu-abu sangat terang */
+            border: 2px solid #d1d5db; /* Border default abu-abu */
+            border-radius: 0.5rem;
+            outline: none;
+            color: #1f2937;
+            transition: all 200ms ease;
+            box-sizing: border-box; /* Memastikan lebar 100% mencakup padding dan border */
+        }
+        
+        .input-field::placeholder {
+            color: #9ca3af;
+        }
+
+        .input-field:focus {
+            border-color: #06B6D4; /* Warna fokus terang (Cyan/Teal) */
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3); /* Ring fokus cyan */
+            background-color: #ffffff;
+        }
+
+        /* Tombol Submit */
+        .submit-btn {
+            width: 100%;
+            background-color: #06B6D4; /* Warna tombol terang (Cyan/Teal) */
+            color: white;
+            font-weight: 700;
+            padding: 12px 16px;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); /* Shadow cyan */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-sizing: border-box; /* Memastikan lebar 100% mencakup padding */
+        }
+
+        .submit-btn:hover {
+            background-color: #0891b2; /* Sedikit lebih gelap saat hover */
+            transform: scale(1.01);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+        }
+
+        /* Kotak Pesan */
+        #messageBox {
+            margin-top: 1.5rem;
+            padding: 12px;
+            border-radius: 0.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            display: none;
+            color: white; /* Teks pesan putih */
+            font-weight: 600;
+        }
+        
+        .message-success {
+            background-color: #10B981; /* Warna hijau solid cerah */
+        }
+
+        .message-error {
+            background-color: #EF4444; /* Warna merah solid cerah */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Kontainer Pusat -->
+    <div class="login-card"> 
+        
+        <!-- LOGO GAMBAR ANDA (Dipindahkan ke dalam kartu) -->
+        <img class="drive-logo-image" 
+             src="https://drive.google.com/thumbnail?id=13dz-OsYhlGIBdaQPVxkj0n5t8azQsM6c&sz=w200-h100" 
+             alt="Logo Google Drive"
+             onerror="this.onerror=null; this.src='https://placehold.co/200x100/aabbff/000000?text=GD+Gagal'">
+        
+        <!-- Judul -->
+        <h2 class="title">
+            Niwatori Group
+        </h2>
+        <p class="subtitle">
+          Masukkan Password
+        </p>
+
+        <!-- Formulir Login -->
+        <form id="passwordForm">
+            <!-- Hanya input Kata Sandi -->
+            <div class="input-group">
+                <label for="password" class="input-label">
+                    Kata Sandi
+                </label>
+                <input 
+                    type="password" 
+                    id="password" 
+                    name="password"
+                    required 
+                    placeholder="Masukkan kata sandi"
+                    class="input-field"
+                >
+            </div>
+
+            <!-- Tombol Submit -->
+            <button 
+                type="submit" 
+                class="submit-btn"
+            >
+                Masuk
+            </button>
+        </form>
+
+        <!-- Kotak Pesan -->
+        <div id="messageBox" role="alert">
+            <!-- Pesan akan ditampilkan di sini -->
+        </div>
+
+    </div>
+
+    <script>
+        // Mendapatkan elemen formulir dan kotak pesan
+        const form = document.getElementById('passwordForm');
+        const messageBox = document.getElementById('messageBox');
+
+        // MAP PENGARAHAN KATA SANDI (Ganti URL ini dengan tautan Google Sites Anda)
+        // TOTAL 40 PASANGAN KATA SANDI DAN URL TUJUAN
+        const PASSWORD_REDIRECT_MAP = {
+            // KELOMPOK 1 (1-10)
+            'sandi-01': 'https://sites.google.com/view/situs-rahasia-01',
+            'sandi-02': 'https://sites.google.com/view/situs-rahasia-02',
+            'sandi-03': 'https://sites.google.com/view/situs-rahasia-03',
+            'sandi-04': 'https://sites.google.com/view/situs-rahasia-04',
+            'sandi-05': 'https://sites.google.com/view/situs-rahasia-05',
+            'sandi-06': 'https://sites.google.com/view/situs-rahasia-06',
+            'sandi-07': 'https://sites.google.com/view/situs-rahasia-07',
+            'sandi-08': 'https://sites.google.com/view/situs-rahasia-08',
+            'sandi-09': 'https://sites.google.com/view/situs-rahasia-09',
+            'sandi-10': 'https://sites.google.com/view/situs-rahasia-10',
+
+            // KELOMPOK 2 (11-20)
+            'sandi-11': 'https://sites.google.com/view/situs-rahasia-11',
+            'sandi-12': 'https://sites.google.com/view/situs-rahasia-12',
+            'sandi-13': 'https://sites.google.com/view/situs-rahasia-13',
+            'sandi-14': 'https://sites.google.com/view/situs-rahasia-14',
+            'sandi-15': 'https://sites.google.com/view/situs-rahasia-15',
+            'sandi-16': 'https://sites.google.com/view/situs-rahasia-16',
+            'sandi-17': 'https://sites.google.com/view/situs-rahasia-17',
+            'sandi-18': 'https://sites.google.com/view/situs-rahasia-18',
+            'sandi-19': 'https://sites.google.com/view/situs-rahasia-19',
+            'sandi-20': 'https://sites.google.com/view/situs-rahasia-20',
+
+            // KELOMPOK 3 (21-30)
+            'sandi-21': 'https://sites.google.com/view/situs-rahasia-21',
+            'sandi-22': 'https://sites.google.com/view/situs-rahasia-22',
+            'sandi-23': 'https://sites.google.com/view/situs-rahasia-23',
+            'sandi-24': 'https://sites.google.com/view/situs-rahasia-24',
+            'sandi-25': 'https://sites.google.com/view/situs-rahasia-25',
+            'sandi-26': 'https://sites.google.com/view/situs-rahasia-26',
+            'sandi-27': 'https://sites.google.com/view/situs-rahasia-27',
+            'sandi-28': 'https://sites.google.com/view/situs-rahasia-28',
+            'sandi-29': 'https://sites.google.com/view/situs-rahasia-29',
+            'sandi-30': 'https://sites.google.com/view/situs-rahasia-30',
+            
+            // KELOMPOK 4 (31-40)
+            'sandi-31': 'https://sites.google.com/view/situs-rahasia-31',
+            'sandi-32': 'https://sites.google.com/view/situs-rahasia-32',
+            'sandi-33': 'https://sites.google.com/view/situs-rahasia-33',
+            'sandi-34': 'https://sites.google.com/view/situs-rahasia-34',
+            'sandi-35': 'https://sites.google.com/view/situs-rahasia-35',
+            'sandi-36': 'https://sites.google.com/view/situs-rahasia-36',
+            'sandi-37': 'https://sites.google.com/view/situs-rahasia-37',
+            'sandi-38': 'https://sites.google.com/view/situs-rahasia-38',
+            'sandi-39': 'https://sites.google.com/view/situs-rahasia-39',
+            'sandi-40': 'https://sites.google.com/view/situs-rahasia-40'
+        };
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah pengiriman formulir standar
+
+            const passwordInput = document.getElementById('password').value.trim();
+            
+            // Membersihkan pesan sebelumnya
+            messageBox.style.display = 'none';
+            messageBox.classList.remove('message-success', 'message-error');
+            messageBox.textContent = '';
+
+            const redirectURL = PASSWORD_REDIRECT_MAP[passwordInput];
+
+            if (redirectURL) {
+                // Kata Sandi Benar dan ditemukan di map
+                showMessage('Kata Sandi Diterima! Mengarahkan ke halaman rahasia...', 'success');
+                
+                // JEDA sebentar sebelum mengarahkan (untuk melihat pesan sukses)
+                setTimeout(() => {
+                    window.location.href = redirectURL;
+                }, 1500); // Redirect setelah 1.5 detik
+                
+                form.reset();
+            } else {
+                // Kata Sandi Salah
+                showMessage('Kata Sandi Salah atau tidak terdaftar. Silakan coba lagi.', 'error');
+            }
+        });
+
+        /**
+         * Fungsi untuk menampilkan pesan status (Menggantikan alert)
+         * @param {string} message Teks pesan yang akan ditampilkan.
+         * @param {string} type 'success' atau 'error' untuk penataan gaya.
+         */
+        function showMessage(message, type) {
+            messageBox.textContent = message;
+            messageBox.style.display = 'block';
+            
+            if (type === 'success') {
+                messageBox.classList.add('message-success');
+            } else if (type === 'error') {
+                messageBox.classList.add('message-error');
+            }
+        }
+    </script>
+</body>
+</html>
