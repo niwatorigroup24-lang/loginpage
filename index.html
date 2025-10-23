@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-        /* Reset dan Layout Utama */
+     
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
@@ -20,57 +20,47 @@
             color: #1f2937; /* Warna teks utama gelap */
         }
 
-        /* Styling Logo Gambar (Google Drive Image) */
+       
         .drive-logo-image { 
-            /* ---------- UKURAN DAN PENEMPATAN LOGO DI SINI ---------- */
             width: 350px; 
             height: 150px; 
-            /* Posisikan di tengah kartu */
             display: block;
-            margin: 0 auto 20px auto; /* Tengah horizontal, beri jarak bawah */
-            /* -------------------------------------------------- */
+            margin: 0 auto 20px auto; 
             object-fit: contain;
         }
 
-        /* Styling Kartu Login (Clean White) */
         .login-card {
-            background-color: #ffffff; /* Kartu Putih Bersih */
+            background-color: #ffffff; 
             border-radius: 1rem; /* 16px */
-            /* Shadow lembut untuk tampilan 'mengambang' */
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
             max-width: 400px;
             width: 100%;
             padding: 40px;
             transition: all 0.5s ease;
-            border: 1px solid #e5e7eb; /* Border sangat halus */
+            border: 1px solid #e5e7eb; 
             text-align: center;
         }
         
         .login-card:hover {
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); /* Shadow sedikit lebih dalam saat hover */
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); 
         }
 
-        /* LOGO ICON LAMA (SVG) DIHAPUS, MAKA STYLING INI TIDAK DIPERLUKAN LAGI */
-        /* .logo-container {} */
-
-        /* Judul */
         .title {
             font-size: 1.875rem; /* 30px */
             font-weight: 700;
             margin-bottom: 0.5rem; 
             text-align: center;
             letter-spacing: -0.025em;
-            color: #111827; /* Warna judul sangat gelap */
+            color: #111827;
         }
 
-        /* Paragraf Keterangan */
         .subtitle {
-            color: #4b5563; /* Warna subtitle abu-abu gelap */
+            color: #4b5563;
             margin-bottom: 2rem; /* 32px */
             text-align: center;
         }
 
-        /* Input Field */
+    
         .input-group {
             margin-bottom: 1.5rem;
         }
@@ -81,19 +71,19 @@
             font-weight: 500;
             margin-bottom: 0.5rem;
             color: #1f2937;
-            text-align: left; /* Kembalikan label ke kiri */
+            text-align: left;
         }
 
         .input-field {
             width: 100%;
             padding: 10px 16px;
-            background-color: #f9fafb; /* Latar belakang input abu-abu sangat terang */
-            border: 2px solid #d1d5db; /* Border default abu-abu */
+            background-color: #f9fafb; 
+            border: 2px solid #d1d5db; 
             border-radius: 0.5rem;
             outline: none;
             color: #1f2937;
             transition: all 200ms ease;
-            box-sizing: border-box; /* Memastikan lebar 100% mencakup padding dan border */
+            box-sizing: border-box;
         }
         
         .input-field::placeholder {
@@ -101,28 +91,28 @@
         }
 
         .input-field:focus {
-            border-color: #06B6D4; /* Warna fokus terang (Cyan/Teal) */
-            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3); /* Ring fokus cyan */
+            border-color: #06B6D4; 
+            box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.3); 
             background-color: #ffffff;
         }
 
-        /* Tombol Submit */
+       
         .submit-btn {
             width: 100%;
-            background-color: #06B6D4; /* Warna tombol terang (Cyan/Teal) */
+            background-color: #06B6D4; 
             color: white;
             font-weight: 700;
             padding: 12px 16px;
             border-radius: 0.5rem;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); /* Shadow cyan */
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); 
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-sizing: border-box; /* Memastikan lebar 100% mencakup padding */
+            box-sizing: border-box; 
         }
 
         .submit-btn:hover {
-            background-color: #0891b2; /* Sedikit lebih gelap saat hover */
+            background-color: #0891b2; 
             transform: scale(1.01);
             box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
         }
@@ -140,26 +130,24 @@
         }
         
         .message-success {
-            background-color: #10B981; /* Warna hijau solid cerah */
+            background-color: #10B981; 
         }
 
         .message-error {
-            background-color: #EF4444; /* Warna merah solid cerah */
+            background-color: #EF4444; 
         }
     </style>
 </head>
 <body>
 
-    <!-- Kontainer Pusat -->
     <div class="login-card"> 
-        
-        <!-- LOGO GAMBAR ANDA (Dipindahkan ke dalam kartu) -->
+    
         <img class="drive-logo-image" 
              src="https://drive.google.com/thumbnail?id=13dz-OsYhlGIBdaQPVxkj0n5t8azQsM6c&sz=w200-h100" 
              alt="Logo Google Drive"
              onerror="this.onerror=null; this.src='https://placehold.co/200x100/aabbff/000000?text=GD+Gagal'">
         
-        <!-- Judul -->
+     
         <h2 class="title">
             Niwatori Group
         </h2>
@@ -167,9 +155,9 @@
           Masukkan Password
         </p>
 
-        <!-- Formulir Login -->
+     
         <form id="passwordForm">
-            <!-- Hanya input Kata Sandi -->
+           
             <div class="input-group">
                 <label for="password" class="input-label">
                     Kata Sandi
@@ -184,7 +172,7 @@
                 >
             </div>
 
-            <!-- Tombol Submit -->
+         
             <button 
                 type="submit" 
                 class="submit-btn"
@@ -193,7 +181,7 @@
             </button>
         </form>
 
-        <!-- Kotak Pesan -->
+     
         <div id="messageBox" role="alert">
             <!-- Pesan akan ditampilkan di sini -->
         </div>
@@ -201,13 +189,11 @@
     </div>
 
     <script>
-        // Mendapatkan elemen formulir dan kotak pesan
+    
         const form = document.getElementById('passwordForm');
         const messageBox = document.getElementById('messageBox');
-
-        // MAP PENGARAHAN KATA SANDI (Ganti URL ini dengan tautan Google Sites Anda)
-        // TOTAL 40 PASANGAN KATA SANDI DAN URL TUJUAN
         const PASSWORD_REDIRECT_MAP = {
+            
             // KELOMPOK 1 (1-10)
             'sandi-01': 'https://sites.google.com/view/situs-rahasia-01',
             'stok321': 'https://sites.google.com/view/niwatori2/coldstorage',
@@ -258,11 +244,11 @@
         };
 
         form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah pengiriman formulir standar
+            event.preventDefault(); 
 
             const passwordInput = document.getElementById('password').value.trim();
             
-            // Membersihkan pesan sebelumnya
+           
             messageBox.style.display = 'none';
             messageBox.classList.remove('message-success', 'message-error');
             messageBox.textContent = '';
@@ -270,17 +256,15 @@
             const redirectURL = PASSWORD_REDIRECT_MAP[passwordInput];
 
             if (redirectURL) {
-                // Kata Sandi Benar dan ditemukan di map
                 showMessage('Kata Sandi Diterima!', 'success');
                 
-                // JEDA sebentar sebelum mengarahkan (untuk melihat pesan sukses)
                 setTimeout(() => {
                     window.location.href = redirectURL;
-                }, 1500); // Redirect setelah 1.5 detik
+                }, 1000);
                 
                 form.reset();
             } else {
-                // Kata Sandi Salah
+            
                 showMessage('Kata Sandi Salah atau tidak terdaftar. Silakan coba lagi.', 'error');
             }
         });
@@ -303,6 +287,7 @@
     </script>
 </body>
 </html>
+
 
 
 
